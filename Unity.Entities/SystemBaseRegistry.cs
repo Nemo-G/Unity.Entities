@@ -249,7 +249,7 @@ namespace Unity.Entities
                 
                 defeatGc = (ulong)GCHandle.ToIntPtr(GCHandle.Alloc(managedFn));
                 result = (ulong)Marshal.GetFunctionPointerForDelegate(managedFn);
-#elif UNITY_WEIXINMINIGAME
+#elif UNITY_WEIXINMINIGAME && !UNITY_EDITOR
                 Debug.LogError("Unsupported platform. Burst doesn't work on WeixinMiniGame");
                 defeatGc = 0;
                 result = 0;
